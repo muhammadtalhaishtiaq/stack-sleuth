@@ -1,1 +1,391 @@
-[]
+[
+  {
+    "ts": "2026-09-24T18:30:20.274550+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-15/demo0/demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.355943+00:00",
+    "event": "reproduce",
+    "data": {
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "runs": 3,
+      "returncodes": [
+        1,
+        1,
+        1
+      ],
+      "failed_every_run": true,
+      "deterministic": true
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.507136+00:00",
+    "event": "bisect",
+    "data": {
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "message": "refactor: simplify discount tier lookup",
+      "steps": [
+        {
+          "commit": "afcc8ee",
+          "verdict": "bad"
+        },
+        {
+          "commit": "b58d9fb",
+          "verdict": "good"
+        }
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.514806+00:00",
+    "event": "inspect_commit",
+    "data": {
+      "commit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "subject": "refactor: simplify discount tier lookup"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.516497+00:00",
+    "event": "propose_patch",
+    "data": {
+      "proposal_id": "a4bfa267",
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.516753+00:00",
+    "event": "apply_patch_refused",
+    "data": {
+      "proposal_id": "a4bfa267"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.875435+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-15/demo0/demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:21.877866+00:00",
+    "event": "propose_patch",
+    "data": {
+      "proposal_id": "86f7a277",
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:22.236657+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-15/demo0/demo",
+      "passed": 10,
+      "failed": 0,
+      "failing_tests": []
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:22.237006+00:00",
+    "event": "apply_patch",
+    "data": {
+      "proposal_id": "86f7a277",
+      "approved": true,
+      "tests_passed": 10,
+      "tests_failed": 0
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:22.239170+00:00",
+    "event": "self_test",
+    "data": {
+      "ping": 1
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:22.239640+00:00",
+    "event": "self_test",
+    "data": {
+      "ping": 2
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:31.209006+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:33.486567+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:37.485455+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:38.597699+00:00",
+    "event": "reproduce",
+    "data": {
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "runs": 3,
+      "returncodes": [
+        1,
+        1,
+        1
+      ],
+      "failed_every_run": true,
+      "deterministic": true
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:41.909115+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:43.010474+00:00",
+    "event": "reproduce",
+    "data": {
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "runs": 3,
+      "returncodes": [
+        1,
+        1,
+        1
+      ],
+      "failed_every_run": true,
+      "deterministic": true
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:43.798924+00:00",
+    "event": "bisect",
+    "data": {
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "message": "refactor: simplify discount tier lookup",
+      "steps": [
+        {
+          "commit": "afcc8ee",
+          "verdict": "bad"
+        },
+        {
+          "commit": "b58d9fb",
+          "verdict": "good"
+        }
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:46.850902+00:00",
+    "event": "bisect",
+    "data": {
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "message": "refactor: simplify discount tier lookup",
+      "steps": [
+        {
+          "commit": "afcc8ee",
+          "verdict": "bad"
+        },
+        {
+          "commit": "b58d9fb",
+          "verdict": "good"
+        }
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:51.947393+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:53.074632+00:00",
+    "event": "reproduce",
+    "data": {
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "runs": 3,
+      "returncodes": [
+        1,
+        1,
+        1
+      ],
+      "failed_every_run": true,
+      "deterministic": true
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:53.947487+00:00",
+    "event": "bisect",
+    "data": {
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "message": "refactor: simplify discount tier lookup",
+      "steps": [
+        {
+          "commit": "afcc8ee",
+          "verdict": "bad"
+        },
+        {
+          "commit": "b58d9fb",
+          "verdict": "good"
+        }
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:53.952653+00:00",
+    "event": "inspect_commit",
+    "data": {
+      "commit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "subject": "refactor: simplify discount tier lookup"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:56.477047+00:00",
+    "event": "inspect_commit",
+    "data": {
+      "commit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "subject": "refactor: simplify discount tier lookup"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:59.886192+00:00",
+    "event": "inspect_commit",
+    "data": {
+      "commit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "subject": "refactor: simplify discount tier lookup"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:59.887016+00:00",
+    "event": "propose_patch",
+    "data": {
+      "proposal_id": "32861318",
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "culprit": "afcc8ee"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:30:59.887483+00:00",
+    "event": "apply_patch_refused",
+    "data": {
+      "proposal_id": "32861318"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:00.259035+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:06.238998+00:00",
+    "event": "inspect_commit",
+    "data": {
+      "commit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "subject": "refactor: simplify discount tier lookup"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:10.612431+00:00",
+    "event": "propose_patch",
+    "data": {
+      "proposal_id": "16606164",
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "culprit": "afcc8ee"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:10.613050+00:00",
+    "event": "apply_patch_refused",
+    "data": {
+      "proposal_id": "16606164"
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:10.990706+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 10,
+      "failed": 0,
+      "failing_tests": []
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:10.991551+00:00",
+    "event": "apply_patch",
+    "data": {
+      "proposal_id": "16606164",
+      "approved": true,
+      "tests_passed": 10,
+      "tests_failed": 0
+    }
+  },
+  {
+    "ts": "2026-09-24T18:31:11.351589+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "demo",
+      "passed": 10,
+      "failed": 0,
+      "failing_tests": []
+    }
+  }
+]
