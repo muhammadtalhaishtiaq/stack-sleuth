@@ -1,6 +1,7 @@
+# Bob IDE: don't index these
+.git/
 __pycache__/
 *.pyc
-.git/
 .venv/
 venv/
 .pytest_cache/

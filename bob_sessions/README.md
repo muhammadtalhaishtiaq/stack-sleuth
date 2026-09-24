@@ -1,4 +1,4 @@
-# bob_sessions — Bob IDE task evidence
+# bob_sessions: Bob IDE task evidence
 
 Every Bob IDE task session summary screenshot for this submission goes here as a PNG:
 

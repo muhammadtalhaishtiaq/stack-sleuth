@@ -1,0 +1,1 @@
+{"mcpServers":{"sleuth-mcp":{"args":["${workspaceFolder}/sleuth/server.py"],"command":"python3","description":"StackSleuth debugging tools: run_tests, reproduce, bisect, inspect_commit, propose_patch, apply_patch (human-gated), log_evidence","env":{}}}}

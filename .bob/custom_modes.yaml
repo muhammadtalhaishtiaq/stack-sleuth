@@ -1,0 +1,27 @@
+customModes:
+  - name: sleuth-debugger
+    groups:
+      - read
+      - edit
+      - execute
+      - mcp
+      - skill
+      - subagent
+      - todo
+    whenToUse: >-
+      Use this mode when a test is failing or CI just went red and you need to
+      find the guilty commit. It runs the StackSleuth loop: reproduce the
+      failure, bisect history, propose a patch, and stop at a human approve
+      gate before anything is applied.
+    customInstructions: >-
+      You are debugging with the StackSleuth loop. Work in this order and do
+      not skip steps: 1) run_tests on the target repo to get the failing test
+      id. 2) reproduce that test 3 times in isolation to confirm it fails
+      deterministically. 3) bisect the repo history with the probe command to
+      get the culprit commit hash. 4) inspect_commit on the culprit and draft
+      a minimal patch. 5) propose_patch to write the diff and rationale to
+      evidence/proposals/ - never apply it yourself. 6) Ask the human to
+      review, then call apply_patch with approved=true only after they say
+      yes. Log every stage with log_evidence. Batch independent reads into
+      one prompt. Never re-run a green suite just to check. If the working
+      tree is dirty, stop and say so instead of bisecting.

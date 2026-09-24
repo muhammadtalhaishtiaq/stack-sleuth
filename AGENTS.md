@@ -1,4 +1,4 @@
-# AGENTS.md — working in this repo with Bob IDE
+# AGENTS.md: working in this repo with Bob IDE
 
 ## What this is
 StackSleuth: automated debugging loop (reproduce → bisect → propose → human-gated apply → verify green). Built for the IBM Bob 2.0 Hackathon.
@@ -7,7 +7,7 @@ StackSleuth: automated debugging loop (reproduce → bisect → propose → huma
 - Batch independent file reads into single prompts; always give exact paths and test ids.
 - Never re-run a green test suite "to check". Trust the evidence log.
 - Prefer the `sleuth-debugger` custom mode; it has the skill and MCP tools wired.
-- Use parallel subagents for reproduce vs bisect context gathering — they are independent.
+- Use parallel subagents for reproduce vs bisect context gathering: they are independent.
 
 ## Layout
 - `demo/` is a self-contained git repo with its own history. Do not rewrite its history; the seeded bug commit is the demo's ground truth.
