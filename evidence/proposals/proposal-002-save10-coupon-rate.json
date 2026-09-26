@@ -1,0 +1,13 @@
+{
+  "id": "proposal-002-save10-coupon-rate",
+  "created_at": "2026-09-26T18:43:59Z",
+  "status": "approved and applied",
+  "culprit_commit": "1dad4cf14581e7b11831d3721d38c869809407cd",
+  "culprit_message": "feat: adjust SAVE10 coupon rate",
+  "file": "demo/pricing.py",
+  "rationale": "The commit changed SAVE10 from 0.10 to 0.05, so the coupon gives 5% off instead of the documented 10%. Two tests fail: test_coupon and test_total_with_coupon. The fix restores SAVE10 to 0.10.",
+  "diff": "--- a/demo/pricing.py\n+++ b/demo/pricing.py\n@@ -35,1 +35,1 @@\n-    return {\"SAVE5\": 0.05, \"SAVE10\": 0.05}.get(code, 0.0)\n+    return {\"SAVE5\": 0.05, \"SAVE10\": 0.10}.get(code, 0.0)\n",
+  "approved": true,
+  "approved_at": "2026-09-26T18:44:00Z",
+  "approved_by": "Talha (delegated to agent: work independently and complete)"
+}

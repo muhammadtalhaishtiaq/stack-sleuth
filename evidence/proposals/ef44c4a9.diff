@@ -1,0 +1,11 @@
+--- a/pricing.py
++++ b/pricing.py
+@@ -12,7 +12,7 @@
+     """Discount rate for a line quantity: 15% at 100+, 10% at 10+, else 0."""
+     if qty >= 100:
+         return 0.15
+-    if qty > 10:  # BUG: off-by-one, should be >= 10
++    if qty >= 10:
+         return 0.10
+     return 0.0
+ 

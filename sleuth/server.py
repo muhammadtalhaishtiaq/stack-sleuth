@@ -90,6 +90,18 @@ def run_tests(repo_path: str) -> dict:
     p = _run([sys.executable, "-m", "pytest", "--tb=no", "-q"], repo)
     out = (p.stdout or "") + (p.stderr or "")
     summary = {"ok": p.returncode == 0, "returncode": p.returncode}
+    # Collection/import errors: pytest crashed before running tests (exit 2/3/4).
+    # Report this distinctly so callers don't mistake it for "0 failed".
+    crashed = p.returncode not in (0, 1, 5)
+    has_error_marker = bool(re.search(r"^(ERROR|ImportError|ModuleNotFoundError)", out, re.M))
+    if crashed or has_error_marker:
+        summary["collection_error"] = True
+        summary["error_detail"] = "\n".join(
+            l for l in out.strip().splitlines()
+            if l.startswith("ERROR") or "Error" in l
+        )[:500]
+    else:
+        summary["collection_error"] = False
     for key, pattern in (("passed", r"(\d+) passed"), ("failed", r"(\d+) failed"),
                          ("errors", r"(\d+) error")):
         m = re.search(pattern, out)
@@ -147,7 +159,11 @@ def bisect(repo_path: str, test_command: str, good_ref: str = "") -> dict:
     dirty = [l for l in _run(["git", "status", "--porcelain"], repo).stdout.splitlines()
              if not l.startswith("??")]
     if dirty:
-        return {"ok": False, "error": "working tree has uncommitted changes; commit or stash first"}
+        return {"ok": False, "error": (
+            "working tree has uncommitted changes; git bisect needs a clean tree. "
+            "Run 'git stash' to shelve your changes (restore with 'git stash pop'), "
+            "or 'git commit' them first, then retry bisect."
+        )}
     if not good_ref:
         roots = _run(["git", "rev-list", "--max-parents=0", "HEAD"], repo).stdout.strip().splitlines()
         if not roots:

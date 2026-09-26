@@ -387,5 +387,169 @@
       "failed": 0,
       "failing_tests": []
     }
+  },
+  {
+    "ts": "2026-09-26T18:44:31.949421+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-4/test_run_tests_reports_collect0/broken_demo",
+      "passed": 0,
+      "failed": 0,
+      "failing_tests": []
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:35.190334+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-5/test_run_tests_reports_collect0/broken_demo",
+      "passed": 0,
+      "failed": 0,
+      "failing_tests": []
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:44.954574+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-6/test_run_tests_reports_collect0/broken_demo",
+      "passed": 0,
+      "failed": 0,
+      "failing_tests": []
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:48.354886+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-7/demo0/demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:49.529596+00:00",
+    "event": "reproduce",
+    "data": {
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "runs": 3,
+      "returncodes": [
+        1,
+        1,
+        1
+      ],
+      "failed_every_run": true,
+      "deterministic": true
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:49.716943+00:00",
+    "event": "bisect",
+    "data": {
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "message": "refactor: simplify discount tier lookup",
+      "steps": [
+        {
+          "commit": "afcc8ee",
+          "verdict": "bad"
+        },
+        {
+          "commit": "b58d9fb",
+          "verdict": "good"
+        }
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:49.732243+00:00",
+    "event": "inspect_commit",
+    "data": {
+      "commit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7",
+      "subject": "refactor: simplify discount tier lookup"
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:49.735886+00:00",
+    "event": "propose_patch",
+    "data": {
+      "proposal_id": "ef44c4a9",
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7"
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:49.736917+00:00",
+    "event": "apply_patch_refused",
+    "data": {
+      "proposal_id": "ef44c4a9"
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:50.186825+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-7/demo0/demo",
+      "passed": 9,
+      "failed": 1,
+      "failing_tests": [
+        "tests/test_pricing.py::test_bulk_discount_tier"
+      ]
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:50.191692+00:00",
+    "event": "propose_patch",
+    "data": {
+      "proposal_id": "db01098a",
+      "test_id": "tests/test_pricing.py::test_bulk_discount_tier",
+      "culprit": "afcc8ee74e40d3b6fc89f46ef227e0c7e2e0c7e7"
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:50.590046+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-7/demo0/demo",
+      "passed": 10,
+      "failed": 0,
+      "failing_tests": []
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:50.590883+00:00",
+    "event": "apply_patch",
+    "data": {
+      "proposal_id": "db01098a",
+      "approved": true,
+      "tests_passed": 10,
+      "tests_failed": 0
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:50.593915+00:00",
+    "event": "self_test",
+    "data": {
+      "ping": 1
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:50.594771+00:00",
+    "event": "self_test",
+    "data": {
+      "ping": 2
+    }
+  },
+  {
+    "ts": "2026-09-26T18:44:51.001687+00:00",
+    "event": "run_tests",
+    "data": {
+      "repo": "/tmp/pytest-of-root/pytest-7/test_run_tests_reports_collect0/broken_demo",
+      "passed": 0,
+      "failed": 0,
+      "failing_tests": []
+    }
   }
 ]

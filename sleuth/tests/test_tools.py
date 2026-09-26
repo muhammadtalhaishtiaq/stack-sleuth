@@ -105,3 +105,35 @@ def test_log_evidence_appends():
     before = server.log_evidence("self_test", {"ping": 1})
     after = server.log_evidence("self_test", {"ping": 2})
     assert after["entries"] == before["entries"] + 1
+
+
+def test_run_tests_reports_collection_error_cleanly(demo_repo, tmp_path):
+    """A broken conftest (collection error) must be reported distinctly,
+    not mistaken for a green suite or a normal test failure."""
+    import shutil
+    repo = Path(demo_repo["path"])
+    # Copy the demo to a scratch dir and break collection with a syntax error
+    broken = tmp_path / "broken_demo"
+    shutil.copytree(repo, broken)
+    (broken / "conftest.py").write_text("this is not valid python (((\n")
+    summary = server.run_tests(str(broken))
+    assert summary["ok"] is False
+    assert summary["collection_error"] is True
+    assert summary["returncode"] != 0
+    assert summary["returncode"] != 1  # not a normal test failure
+    assert summary["failed"] == 0  # no tests ran, so none "failed"
+
+
+def test_bisect_refuses_dirty_working_tree(demo_repo):
+    """Bisect must refuse on a dirty tree and tell the human what to do."""
+    repo = Path(demo_repo["path"])
+    target = repo / "pricing.py"
+    original = target.read_text()
+    try:
+        target.write_text(original + "\n# uncommitted scratch change\n")
+        result = server.bisect(demo_repo["path"], "exit 0")
+        assert result["ok"] is False
+        assert "uncommitted changes" in result["error"]
+        assert "git stash" in result["error"]
+    finally:
+        target.write_text(original)
