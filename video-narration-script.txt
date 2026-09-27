@@ -1,0 +1,15 @@
+So here's the thing about debugging regressions. A test breaks, and you know it's somewhere in the last fifty commits, but which one? You start bisecting manually, running tests, checking diffs. It eats an hour, sometimes more.
+
+StackSleuth does all of that for you. It's an automated debugging agent that runs on IBM Bob.
+
+Let me show you. We've got a demo repo, eight commits, and one of them broke the bulk discount. Ten units should get ten percent off, but the test is failing.
+
+StackSleuth runs the suite, confirms the failure, then reproduces it three times to make sure it's real, not flaky. Then it bisects. Two steps later, it's got the culprit: commit afcc8ee. Someone refactored the discount lookup and changed greater-than-or-equal to just greater-than. One character. Classic off-by-one.
+
+It reads the diff, explains what broke, and drafts the fix. But here's the important part: it doesn't just apply it. The patch sits at a human approval gate. You look at it, you say yes, then it applies and re-runs everything. Ten out of ten green.
+
+And it's not a one-trick demo. We threw a completely different bug at it, a coupon giving the wrong discount. Same loop, found it, fixed it, verified.
+
+We also hardened it. If pytest itself crashes during collection, it tells you clearly instead of pretending everything's fine. And if you try to bisect with uncommitted changes, it stops and tells you exactly what to do.
+
+That's StackSleuth. It proves the culprit with bisect instead of guessing, it keeps you in control with the approval gate, and it logs every step so you've got the full evidence trail.
