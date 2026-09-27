@@ -62,20 +62,23 @@ The whole loop runs through Bob:
                   |  subprocess
   +---------------v------------------------+
   |  demo/ : seeded Python repo            |
-  |  8 commits, bug in commit 4,           |
-  |  1 failing test at HEAD                |
+  |  8 commits, bug seeded in commit 4     |
+  |  (off-by-one, 10-unit boundary)        |
   +----------------------------------------+
 ```
 
-## The 90-second demo
+## Demo video
 
-1. (0-10s) "It's 2 AM. CI just went red. The suite was green 8 commits ago."
-2. (10-30s) I paste the failing test into Bob in `sleuth-debugger` mode. One subagent reproduces the failure 3 times. Another starts bisecting.
-3. (30-55s) "Culprit: commit `afcc8ee`, 'refactor: simplify discount tier lookup'. It flipped `>=` to `>` on the 10-unit boundary, so exactly 10 units lost the 10% discount." The patch proposal and rationale come up.
-4. (55-75s) I approve. The patch applies. Full suite: 10 passed, 0 failed.
-5. (75-90s) "Detect to culprit took under 2 seconds. Every step is in the evidence log, and no patch landed without a human saying yes."
+The submitted demo is a 2-minute animated walkthrough (`videos/stacksleuth-demo-final-v3.mp4`):
 
-If the live demo gods aren't kind, there's a recorded golden run as backup. The loop itself is deterministic, so the recording is the same thing you'd see live.
+1. A failing test, and the question every dev asks: which commit broke it.
+2. The StackSleuth loop: reproduce, bisect, explain, propose, human approval, verify.
+3. The real bug from the demo repo: `if qty > 10` should have been `>=`, so buying exactly 10 units missed the bulk discount. One-character fix. Same story for the SAVE10 coupon, coded as 5% instead of 10%.
+4. How bisect halves the commit history until the culprit commit is left standing.
+5. Real evidence: the demo project open in Bob IDE 2.2.0, the suite going 10 passed in 0.07s in the integrated terminal, and Bob's API analysis (off-by-one spotted, culprit explained, patch drafted, edge cases flagged).
+6. The approval gate: both patches reviewed and explicitly approved by a human before they landed.
+
+The animated scenes are labeled as walkthroughs of how the loop works. The IDE and terminal footage is the real run.
 
 ## Repo layout
 
@@ -98,3 +101,5 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 Then point Bob IDE at this folder. `mcp.json` wires the server over stdio, and `sleuth-debugger` shows up in the mode picker.
 
 Built solo for the IBM Bob 2.0 Hackathon. The plan, the process notes, and what's next are in `docs/BATTLE_PLAN.md`.
+
+Live submission: https://lablab.ai/ai-hackathons/ibm-bob-2-hackathon/ibm-hackathon-lablab/stacksleuth
